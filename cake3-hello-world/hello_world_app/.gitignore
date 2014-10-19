@@ -1,7 +1,0 @@
-!/vendor/empty
-/vendor/*
-/config/app.php
-!/tmp/empty
-/tmp/*
-!/logs/empty
-/logs/*
