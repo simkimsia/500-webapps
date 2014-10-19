@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.38-0ubuntu0.14.04.1)
 # Database: cake3_authentication
-# Generation Time: 2014-10-19 14:08:31 +0000
+# Generation Time: 2014-10-19 14:54:57 +0000
 # ************************************************************
 
 
@@ -35,6 +35,15 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `created`, `modified`)
+VALUES
+	(1,'admin','$2y$10$RxaW7HEch.mk9DNuOg6ljuui8HzoJibx55YKAsKEEVg4Ogdet0kha','admin','2014-10-19 14:35:14','2014-10-19 14:35:14');
+
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
