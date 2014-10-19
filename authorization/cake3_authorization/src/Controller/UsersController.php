@@ -26,6 +26,27 @@ class UsersController extends AppController {
         $this->Auth->allow('add', 'logout');
     }
 
+	public function isAuthorized($user) {
+    	$action = $this->request->action;
+
+	     // All registered users can access users index action
+    	$actionsAuthorizedToAll = ['index', 'view', 'add', 'logout', 'login'];
+	    if (in_array($action, $actionsAuthorizedToAll)) {
+	        return true;
+	    }
+
+	    // The owner of the actual account can edit
+	    $actionsAuthorizedToOwner = ['edit', 'delete'];
+	    if (in_array($action, $actionsAuthorizedToOwner)) {
+	        $userId = (int)$this->request->params['pass'][0];
+	        if ($userId == $user['id']) {
+	        	return true;
+	        }
+	    }
+
+	    return parent::isAuthorized($user);
+	}
+
 /**
  * Index method
  *
