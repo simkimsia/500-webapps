@@ -49,4 +49,13 @@ class AppController extends Controller {
         ]);
 	}
 
+    public function beforeFilter(Event $event) {
+        $this->_setAuthUser();
+    }
+
+    protected function _setAuthUser() {
+        // we want to access the logged in user in the View
+        $this->set(array('authUser' => $this->Auth->user()));
+    }
+
 }
