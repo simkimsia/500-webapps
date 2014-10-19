@@ -15,6 +15,8 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Network\Exception\ForbiddenException;
+use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -35,6 +37,16 @@ class AppController extends Controller {
  */
 	public function initialize() {
 		$this->loadComponent('Flash');
+		$this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'Users',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'logout'
+            ]
+        ]);
 	}
 
 }
