@@ -38,7 +38,8 @@ class AppController extends Controller {
  */
 	public function initialize() {
 		$this->loadComponent('Flash');
-		$this->loadComponent('Auth', [
+
+        $authOptions = [
             'loginRedirect' => [
                 'controller' => 'Users',
                 'action' => 'index'
@@ -48,7 +49,20 @@ class AppController extends Controller {
                 'action' => 'logout'
             ],
             'authorize' => ['Controller']
-        ]);
+        ];
+
+        $authOptions['authenticate'] = [
+            'FOC/Authenticate.MultiColumn' => [
+                'fields' => [
+                    'username' => 'login',
+                    'password' => 'password'
+                ],
+                'columns' => ['username', 'email'],
+                'userModel' => 'Users',
+            ]
+        ];
+
+		$this->loadComponent('Auth', $authOptions);
 	}
 
     public function beforeFilter(Event $event) {

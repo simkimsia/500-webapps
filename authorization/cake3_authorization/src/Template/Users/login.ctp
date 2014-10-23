@@ -2,8 +2,8 @@
 <?= $this->Flash->render('auth') ?>
 <?= $this->Form->create() ?>
     <fieldset>
-        <legend><?= __('Please enter your username and password') ?></legend>
-        <?= $this->Form->input('username') ?>
+        <legend><?= __('Please enter your email/username and password') ?></legend>
+        <?= $this->Form->input('login') ?>
         <?= $this->Form->input('password') ?>
     </fieldset>
 <?= $this->Form->button(__('Login')); ?>
