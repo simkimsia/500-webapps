@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3ce07fa018d5cd4a50d48f4b7606bf36",
+    "hash": "4dfcced48b0b6dab5cc95192704bfe20",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "efb381c7ea0a05fcf878857faca370a8ef2c9c31"
+                "reference": "f78a238413c1bd76f38dd6a5b4085957a9af8686"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/efb381c7ea0a05fcf878857faca370a8ef2c9c31",
-                "reference": "efb381c7ea0a05fcf878857faca370a8ef2c9c31",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/f78a238413c1bd76f38dd6a5b4085957a9af8686",
+                "reference": "f78a238413c1bd76f38dd6a5b4085957a9af8686",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-10-21 18:35:50"
+            "time": "2014-10-23 19:27:48"
         },
         {
             "name": "cakephp/debug_kit",
@@ -285,6 +285,57 @@
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
             "time": "2014-08-29 19:01:27"
+        },
+        {
+            "name": "friendsofcake/authenticate",
+            "version": "dev-cake3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfCake/Authenticate.git",
+                "reference": "56b68cd65c6bf45c1730a4be57d85ce7af1d5419"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfCake/Authenticate/zipball/56b68cd65c6bf45c1730a4be57d85ce7af1d5419",
+                "reference": "56b68cd65c6bf45c1730a4be57d85ce7af1d5419",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "3.0.*-dev",
+                "cakephp/plugin-installer": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "FOC\\Authenticate\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ceeram",
+                    "role": "Author"
+                },
+                {
+                    "name": "ADmad",
+                    "homepage": "https://github.com/ADmad",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CakePHP plugin with authentication classes for AuthComponent.",
+            "homepage": "http://github.com/FriendsOfCake/Authenticate",
+            "keywords": [
+                "authenticate",
+                "cakephp"
+            ],
+            "time": "2014-10-22 19:19:00"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -502,7 +553,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "cakephp/cakephp": 20,
-        "cakephp/debug_kit": 20
+        "cakephp/debug_kit": 20,
+        "friendsofcake/authenticate": 20
     },
     "prefer-stable": true,
     "platform": {
