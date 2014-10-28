@@ -69,18 +69,13 @@ class UsersController extends AppController {
 
 	    $columns = array_keys($newUsers[0]);
 
-	    $newUsersValuesExpression = [];
-
 	    $upsertQuery = $this->Users->query();
 
-	    // $newUsersValuesExpression = new ValuesExpression($columns, $upsertQuery->typeMap()->types([]));
-	    // $newUsersValuesExpression->values($newUsers);
-
 	    $upsertQuery->insert($columns);
-	    $newUsersValuesExpression = $upsertQuery->clause('values')->values($newUsers);
-	    			
-	    $upsertQuery->values($newUsersValuesExpression)
-			        ->epilog('ON DUPLICATE KEY UPDATE `username`=VALUES(`username`), `age`=VALUES(`age`)')
+
+	    $upsertQuery->clause('values')->values($newUsers);
+	    	
+	    $upsertQuery->epilog('ON DUPLICATE KEY UPDATE `username`=VALUES(`username`), `age`=VALUES(`age`)')
 	    			->execute();
 	}
 
