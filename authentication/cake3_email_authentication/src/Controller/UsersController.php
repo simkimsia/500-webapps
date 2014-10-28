@@ -114,6 +114,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function login() {
+		$this->set('title', 'Login');
 	    if ($this->request->is('post')) {
 	        $user = $this->Auth->identify();
 	        if ($user) {

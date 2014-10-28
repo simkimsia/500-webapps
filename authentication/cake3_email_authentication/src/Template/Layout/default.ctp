@@ -14,6 +14,9 @@
  */
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
+if (isset($title)) {
+	$this->assign('title', $title);	
+}
 ?>
 <!DOCTYPE html>
 <html>
