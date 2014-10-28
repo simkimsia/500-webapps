@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$websiteDescription = 'Bookmarker: a way to save your favorite websites';
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<?= $this->Html->charset() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>
-		<?= $cakeDescription ?>:
+		<?= $websiteDescription ?>:
 		<?= $this->fetch('title') ?>
 	</title>
 	<?= $this->Html->meta('icon') ?>
@@ -39,8 +39,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 			<span><?= $this->fetch('title') ?></span>
 		</div>
 		<div class="header-help">
-			<span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
-			<span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
+			<span><a target="_blank" href="https://github.com/simkimsia/500-webapps/tree/master/bookmarker/cake3_bookmarker">Code</a></span>
 			<?php if (!empty($authUser)) : ?>
 			<span><?= $authUser['username'] ?></span>
 			<span><a href="/users/logout">Logout</a></span>

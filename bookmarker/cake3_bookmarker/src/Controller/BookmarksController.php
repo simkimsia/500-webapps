@@ -59,10 +59,26 @@ class BookmarksController extends AppController {
  * @return void
  */
 	public function index() {
+		$conditions = [
+			'Bookmarks.public' => true
+		];
 		$this->paginate = [
-        	'conditions' => [
-            	'Bookmarks.user_id' => $this->Auth->user('id'),
-	        ]
+			'conditions' => $conditions
+	    ];
+	    $this->set('bookmarks', $this->paginate($this->Bookmarks));
+	}
+
+/**
+ * the index view of logged in user's bookmarks method
+ *
+ * @return void
+ */
+	public function mine() {
+		$conditions = [
+			'Bookmarks.user_id' => $this->Auth->user('id'),
+		];
+		$this->paginate = [
+        	'conditions' => $conditions,
 	    ];
 	    $this->set('bookmarks', $this->paginate($this->Bookmarks));
 	}
