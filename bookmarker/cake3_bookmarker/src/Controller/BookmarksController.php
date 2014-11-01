@@ -20,19 +20,21 @@ class BookmarksController extends AppController {
 	public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
     
-        $this->Auth->allow('tags', 'index');
+        $this->Auth->allow(['tags', 'index']);
     }
 
 	public function isAuthorized($user) {
     	$action = $this->request->action;
 
-    	// The add and index actions are always allowed.
-	    if (in_array($action, ['index', 'add', 'tags'])) {
-			return true;
-		}
-		// All other actions require an id.
-		if (empty($this->request->params['pass'][0])) {
-			return false;
+	     // All registered users can access users index action
+    	$actionsAuthorizedToAll = [
+    		'index', 
+    		'add', 
+    		'tags', 
+    		'mine',
+    		'mine_in_public'];
+	    if (in_array($action, $actionsAuthorizedToAll)) {
+	        return true;
 	    }
 
 	    // Check that the bookmark belongs to the current user.
@@ -40,6 +42,11 @@ class BookmarksController extends AppController {
 	    $bookmark = $this->Bookmarks->get($id);
 	    if ($bookmark->user_id == $user['id']) {
 			return true;
+	    }
+
+	    // All other actions require an id.
+		if (empty($this->request->params['pass'][0])) {
+			return false;
 	    }
 
 	    return parent::isAuthorized($user);
@@ -63,7 +70,17 @@ class BookmarksController extends AppController {
 			'Bookmarks.public' => true
 		];
 		$this->paginate = [
-			'conditions' => $conditions
+			'conditions' => $conditions,
+			'contain' => [
+			    'Users' => function ($q) {
+			       return $q
+			            ->select(['username', 'id']);
+			    }
+			],
+			'order' => [
+				'Bookmarks.updated' => 'desc', 
+				'Bookmarks.id' => 'desc'
+			]
 	    ];
 	    $this->set('bookmarks', $this->paginate($this->Bookmarks));
 	}

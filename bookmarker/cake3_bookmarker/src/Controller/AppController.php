@@ -41,7 +41,7 @@ class AppController extends Controller {
 
         $authOptions = [
             'loginRedirect' => [
-                'controller' => 'Users',
+                'controller' => 'Bookmarks',
                 'action' => 'index'
             ],
             'logoutRedirect' => [
