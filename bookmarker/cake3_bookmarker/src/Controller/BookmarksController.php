@@ -109,7 +109,7 @@ class BookmarksController extends AppController {
  */
 	public function view($id = null) {
 		$bookmark = $this->Bookmarks->get($id, [
-			'contain' => ['Users', 'Tags', 'BookmarksTags']
+			'contain' => ['Users', 'Tags']
 		]);
 		$this->set('bookmark', $bookmark);
 	}
