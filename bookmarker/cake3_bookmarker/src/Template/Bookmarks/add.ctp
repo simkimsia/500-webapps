@@ -13,6 +13,7 @@
 		echo $this->Form->input('title');
 		echo $this->Form->input('description');
 		echo $this->Form->input('url');
+		echo $this->Form->input('public', ['checked']);
 		echo $this->Form->input('tag_string', ['type' => 'text']);
 	?>
 	</fieldset>
