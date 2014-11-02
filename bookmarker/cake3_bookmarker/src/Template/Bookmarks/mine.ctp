@@ -2,6 +2,7 @@
 	<h3><?= __('Actions') ?></h3>
 	<ul class="side-nav">
 		<li><?= $this->Html->link(__('New Bookmark'), ['action' => 'add']) ?></li>
+		<li><?= $this->Html->link(__('All Bookmarks'), ['action' => 'index']) ?></li>
 		<li><?= $this->Html->link(__('My Bookmarks'), ['controller' => 'Bookmarks', 'action' => 'mine'], ['class' => 'disabled']) ?></li>
 		<?php if ($authUser['role'] == 'admin') : ?>
 		<li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>

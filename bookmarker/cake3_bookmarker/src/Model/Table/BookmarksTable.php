@@ -60,9 +60,14 @@ class BookmarksTable extends Table {
 	    ];
 	    return $this->find()
 	        ->distinct($fields)
+	        ->where(['Bookmarks.public' => true])
 	        ->matching('Tags', function($q) use ($options) {
 	            return $q->where(['Tags.title IN' => $options['tags']]);
-	        });
+	        })
+	        ->order([
+				'Bookmarks.updated' => 'desc', 
+				'Bookmarks.id' => 'desc'
+			]);
 	}
 
 	public function beforeSave($event, $entity, $options) {

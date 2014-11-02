@@ -20,7 +20,7 @@ class BookmarksController extends AppController {
 	public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
     
-        $this->Auth->allow(['tags', 'index']);
+        $this->Auth->allow(['tags', 'index', 'view']);
     }
 
 	public function isAuthorized($user) {
@@ -54,9 +54,17 @@ class BookmarksController extends AppController {
 
 	public function tags() {
 	    $tags = $this->request->params['pass'];
-	    $bookmarks = $this->Bookmarks->find('tagged', [
-			'tags' => $tags
-	    ]);
+
+	    $this->paginate = [
+	    	'finder' => [
+	    		'tagged' => [
+	    			'tags' => $tags
+	    		]
+	    	]
+	    ];
+
+	    $bookmarks = $this->paginate($this->Bookmarks);
+
 	    $this->set(compact('bookmarks', 'tags'));
 	}
 
@@ -96,6 +104,10 @@ class BookmarksController extends AppController {
 		];
 		$this->paginate = [
         	'conditions' => $conditions,
+        	'order' => [
+				'Bookmarks.updated' => 'desc', 
+				'Bookmarks.id' => 'desc'
+			]
 	    ];
 	    $this->set('bookmarks', $this->paginate($this->Bookmarks));
 	}
