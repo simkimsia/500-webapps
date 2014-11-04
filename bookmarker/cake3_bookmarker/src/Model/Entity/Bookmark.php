@@ -21,6 +21,7 @@ class Bookmark extends Entity {
 		'user' => true,
 		'tags' => true,
 		'tag_string' => true,
+		'public' => true,
 	];
 
 }
