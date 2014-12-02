@@ -1,1 +1,1 @@
-![Alt text](http://full/path/to/img.jpg "Optional title")
+![Screenshots of how watermark app works](/../master/files-manipulation/images/cake2_watermark/watermark.gif?raw=true "Watermark")
