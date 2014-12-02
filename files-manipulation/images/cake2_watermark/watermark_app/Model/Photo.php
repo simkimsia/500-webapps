@@ -80,8 +80,6 @@ class Photo extends AppModel {
         }
         $data['Image'] = $images;
 
-        $this->log(ROOT . DS . APP_DIR . DS . WEBROOT_DIR . '/font/FuturaBook.ttf');
-
         $tmpPath = $data['Image'][0]['attachment']['tmp_name'];
 
         // configure with favored image driver (gd by default)
@@ -102,11 +100,25 @@ class Photo extends AppModel {
         // Try to save the data using Model::saveAll()
         $this->create();
         if ($this->saveAll($data)) {
-            return true;
+            return $this->getLastSavedPhotoLink();
         }
 
         // Throw an exception for the controller
         throw new Exception(__("This photo could not be saved. Please try again"));
+    }
+
+    public function getLastSavedPhotoLink() {
+        $id = $this->getLastInsertId();
+
+        $rawQuery = 'SELECT CONCAT("/files/image/attachment/", a.id, "/", a.attachment) as path from attachments a inner join photos p on a.foreign_key = p.id and a.model = "Image" where p.id = ?;';
+        $values = [$id];
+        $db = $this->getDataSource();
+        $result = $db->fetchAll($rawQuery, $values);
+        if (Hash::check($result, '0.0.path')) {
+            return $result[0][0]['path'];
+        }
+        // Throw an exception for the controller
+        throw new Exception(__("Watermarked image is saved but cannot be found. Please try again"));
     }
 
 }

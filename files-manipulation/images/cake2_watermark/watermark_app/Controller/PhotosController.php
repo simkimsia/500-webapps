@@ -30,8 +30,9 @@ class PhotosController extends AppController {
     public function add_watermark() {
         if ($this->request->is('post')) {
             try {
-                $this->Photo->createWatermarkWithAttachments($this->request->data);
-                $this->Session->setFlash(__('Your photo has been saved'));
+                $result = $this->Photo->createWatermarkWithAttachments($this->request->data);
+                $message = sprintf('Your photo has been saved. Click <a target="_blank" href="%s">here</a>', $result);
+                $this->Session->setFlash($message, 'default', ['class' => 'notice success']);
             } catch (Exception $e) {
                 $this->Session->setFlash($e->getMessage());
             }
