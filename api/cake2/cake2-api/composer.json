@@ -1,9 +1,0 @@
-{
-    "name": "cake2-api",
-    "require": {
-        "cakephp/cakephp": "2.5.*"
-    },
-    "config": {
-        "vendor-dir": "Vendor/"
-    }
-}
