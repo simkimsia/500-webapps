@@ -49,4 +49,18 @@ class CitiesTable extends Table {
 		return $validator;
 	}
 
+/**
+ * Custom finder for search
+ *
+ * @param Query instance
+ * @param array instance
+ * @return Query
+ */
+	public function findMatched(Query $query, array $options) {
+        $query
+        	->where(['Cities.name LIKE' => '%' . $options['q'] . '%'])
+        	->orWhere(['Cities.district LIKE' => '%' . $options['q'] . '%']);
+        return $query;
+    }
+
 }

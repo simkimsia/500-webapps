@@ -24,6 +24,28 @@ class CitiesController extends AppController {
 	}
 
 /**
+ * Index method
+ *
+ * @return void
+ */
+	public function search() {
+		$this->paginate = [
+			'contain' => ['Countries']
+		];
+
+		// pass in the query string
+		if (!empty($_GET['q'])) {
+			$customFinderOptions = ['q' => $_GET['q']];
+			$this->paginate['finder'] = [
+                'matched' => $customFinderOptions
+            ];
+		}
+
+		$this->set('cities', $this->paginate($this->Cities));
+		$this->set('_serialize', ['cities']);
+	}
+
+/**
  * View method
  *
  * @param string|null $id City id
