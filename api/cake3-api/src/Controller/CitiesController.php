@@ -41,8 +41,34 @@ class CitiesController extends AppController {
             ];
 		}
 
-		$this->set('cities', $this->paginate($this->Cities));
-		$this->set('_serialize', ['cities']);
+		$cities = $this->paginate($this->Cities);
+		$data = $cities;
+		$pagination = $this->request->params['paging'];
+		$metadata = $this->convertApiPaginationFormat();
+		$metadata['query'] = empty($_GET['q']) ? null : $_GET['q'];
+
+		$this->set(compact('data', 'cities', 'metadata', 'pagination'));
+		$this->set('_serialize', ['data', 'metadata', 'pagination']);
+		$this->render('index');
+	}
+
+// need to include next_url, prev_url, first_url, last_url, etc
+// need to ensure against 404 for empty search results
+	// cater for cursors http://fractal.thephpleague.com/pagination/
+	// use http://fractal.thephpleague.com/serializers/
+	protected function convertApiPaginationFormat() {
+		$apiPagination = [];
+		$paginationData = $this->request->params['paging']['Cities'];
+		$apiPagination['total'] = $paginationData['count'];
+		$apiPagination['count'] = $paginationData['current'];
+		$apiPagination['per_page'] = $paginationData['perPage'];
+		$apiPagination['current_page'] = $paginationData['page'];
+		$apiPagination['total_pages'] = $paginationData['pageCount'];
+		$apiPagination['sort'] = $paginationData['sort'];
+		$apiPagination['direction'] = $paginationData['direction'];
+		$apiPagination['limit'] = $paginationData['limit'];
+		$apiPagination['query'] = null;
+		return $apiPagination;
 	}
 
 /**
