@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2607d83c373dc2db0bd287af3ecb3c21",
+    "hash": "c27c003d1b63c39c37275e688bd92d49",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "04804db01e44d0d2fc94d3f87b649d5d529dfd33"
+                "reference": "30dd298a3795ecb2ff2a01b2db93f23febda60fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/04804db01e44d0d2fc94d3f87b649d5d529dfd33",
-                "reference": "04804db01e44d0d2fc94d3f87b649d5d529dfd33",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/30dd298a3795ecb2ff2a01b2db93f23febda60fb",
+                "reference": "30dd298a3795ecb2ff2a01b2db93f23febda60fb",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-12-05 02:35:36"
+            "time": "2014-12-12 19:39:09"
         },
         {
             "name": "cakephp/debug_kit",
@@ -196,12 +196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "8a6f3da9d7fc8cb5df33a1752de5d0b337b63047"
+                "reference": "0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/8a6f3da9d7fc8cb5df33a1752de5d0b337b63047",
-                "reference": "8a6f3da9d7fc8cb5df33a1752de5d0b337b63047",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61",
+                "reference": "0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61",
                 "shasum": ""
             },
             "require": {
@@ -245,7 +245,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2014-11-29 19:04:50"
+            "time": "2014-12-12 07:50:32"
         },
         {
             "name": "cakephp/plugin-installer",
@@ -327,6 +327,61 @@
                 "password"
             ],
             "time": "2014-11-20 16:49:30"
+        },
+        {
+            "name": "league/url",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/url.git",
+                "reference": "1fd91d559b82c357c518e371b89b5c0f06a10b26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/url/zipball/1fd91d559b82c357c518e371b89b5c0f06a10b26",
+                "reference": "1fd91d559b82c357c518e371b89b5c0f06a10b26",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "replace": {
+                "bakame/url": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Url\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "League/url is a lightweight PHP Url manipulating library",
+            "keywords": [
+                "parse_url",
+                "php",
+                "url"
+            ],
+            "time": "2014-06-30 13:22:30"
         },
         {
             "name": "mobiledetect/mobiledetectlib",

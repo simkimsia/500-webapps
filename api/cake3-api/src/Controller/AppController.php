@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -38,7 +39,7 @@ class AppController extends Controller {
 		$this->loadComponent('RequestHandler');
 	}
 
-	public function beforeFilter() {
+	public function beforeFilter(Event $event) {
         $this->response->header('Access-Control-Allow-Origin','*');
         $this->response->header('Access-Control-Allow-Methods','*');
         $this->response->header('Access-Control-Allow-Headers','X-Requested-With');
