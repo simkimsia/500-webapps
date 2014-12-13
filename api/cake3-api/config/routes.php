@@ -23,7 +23,8 @@ use Cake\Routing\Router;
 
 Router::scope('/', function ($routes) {
 	$routes->extensions(['json']);
-    $routes->resources('Cities');
+    $routes->resources('cities');
+    
 /**
  * Here, we are connecting '/' (base path) to a controller called 'Pages',
  * its action called 'display', and we pass a param to select the view file
@@ -47,7 +48,7 @@ Router::scope('/', function ($routes) {
  * You can remove these routes once you've connected the
  * routes you want in your application.
  */
-	$routes->fallbacks();
+	$routes->fallbacks('InflectedRoute');
 });
 
 /**
