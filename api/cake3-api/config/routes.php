@@ -48,6 +48,7 @@ Router::scope('/', function ($routes) {
  * You can remove these routes once you've connected the
  * routes you want in your application.
  */
+	$routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'InflectedRoute']);
 	$routes->fallbacks('InflectedRoute');
 });
 
