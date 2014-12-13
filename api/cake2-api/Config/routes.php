@@ -12,7 +12,6 @@
  */
 
 	Router::parseExtensions('json');
-	Router::mapResources('cities');
 
 /**
  * Here, we are connecting '/' (base path) to controller called 'Pages',

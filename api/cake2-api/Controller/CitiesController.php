@@ -14,7 +14,7 @@ class CitiesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session', 'RequestHandler');
+	public $components = ['Session', 'Paginator', 'RequestHandler'];
 
 /**
  * index method
@@ -22,7 +22,8 @@ class CitiesController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->City->recursive = -1;
+		$this->City->recursive = 0;
+		$this->Paginator->settings = $this->paginate;
 		$this->set('cities', $this->Paginator->paginate());
 		$this->set('_serialize', ['cities']);
 	}
