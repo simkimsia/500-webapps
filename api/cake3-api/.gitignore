@@ -1,5 +1,7 @@
 /vendor/*
+/plugins/*
 /config/app.php
 /tmp/*
 /logs/*
 !empty
+
