@@ -3,7 +3,6 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use App\Model\Entity\City;
-use App\Model\Transformer\CityTransformer;
 use League\Url\Url;
 
 /**
